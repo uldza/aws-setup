@@ -92,7 +92,7 @@ sudo apt-get upgrade bazel
 ```
 ---
 
-#### Install Nvidia toolkit
+#### [TODO] Install Nvidia toolkit
 
 `wget https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda_8.0.44_linux-run`
 
@@ -130,7 +130,30 @@ sudo ./cuda-linux64-rel-8.0.44-19326674.run
 # * Answer `y` to create a symbolic link
 ```
 
+#### Install CudNN
+
+Download cudnn-8.0-linux-x64-v5.1.tgz from [Nvidia](https://developer.nvidia.com/rdp/cudnn-download)
+You need to be registered for Nvidia dev programm.
+
+Copy localy downloaded file to AWS instance
+
+`scp ~/Downloads/cudnn-8.0-linux-x64-v5.1.tgz ubuntu@[AWS_INSTANCE_IP]:~/`
+
+Then installation is as simple as extracting and moving a few files.
+
+```
+cd ~/
+tar -xzf cudnn-8.0-linux-x64-v5.1.tgz
+sudo mv cuda /usr/local/
+```
+
+Add these lines to `~/.bashrc`
+
+```
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
+export CUDA_HOME=/usr/local/cuda
+```
+
 ### TODO
-* Install Nvidia toolkit
-* Install CudNN
+
 * Install tensorflow for anaconda with GPU support
