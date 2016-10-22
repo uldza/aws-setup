@@ -21,19 +21,26 @@ Replace 0.0.0.0 with you aws instance's public IP.
 ## Installing system (at the moment manually)
 
 #### Update systems
-`sudo add-apt-repository ppa:openjdk-r/ppa`
-`sudo apt-get update`
-`sudo apt-get upgrade -y`
-`sudo apt-get install -y build-essential git swig default-jdk zip zlib1g-dev openjdk-8-jdk`
+```
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install -y build-essential git swig default-jdk zip zlib1g-dev openjdk-8-jdk
+```
 
 #### Get and run anaconda installer
-`wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh`
-`bash Anaconda3-4.2.0-Linux-x86_64.sh`
+```
+wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh
+bash Anaconda3-4.2.0-Linux-x86_64.sh
+```
 (agree to terms, set up install dir, change path - this will be done automatically by anaconda install)
 
 #### Configure Jupyther notebook (be sure to relogin before, since anaconda path variables will not be available without)
+
 `jupyter notebook --generate-config`
-Generate password: 
+
+Generate password:
+
 `key=$(python -c "from notebook.auth import passwd; print(passwd())")`
 
 Create certificate:
