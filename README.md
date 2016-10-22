@@ -22,10 +22,10 @@ Replace 0.0.0.0 with you aws instance's public IP.
 
 #### Update systems
 ```
-sudo add-apt-repository ppa:openjdk-r/ppa
+sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get upgrade -y
-sudo apt-get install -y build-essential git swig default-jdk zip zlib1g-dev openjdk-8-jdk
+sudo apt-get install -y build-essential git swig zip zlib1g-dev oracle-java8-installer
 ```
 
 #### Get and run anaconda installer
