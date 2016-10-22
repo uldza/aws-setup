@@ -62,11 +62,24 @@ c.NotebookApp.port = 8888" .jupyter/jupyter_notebook_config.py
 ```
 
 Create jupyther notebook dir
-`mkdir ~/notebooks`
-Launch jupyther (you can do it in seperate screen or tmux session)
-`cd ~/notebooks`
-`jupyter notebook --certfile=~/certs/mycert.pem --keyfile ~/certs/mycert.key`
-Detach from screen on tmux session
-You can acccess jupyther from browser now: https://[INSTANCES_IP]:8888
 
-####
+`mkdir ~/notebooks`
+
+Launch jupyther (you can do it in seperate screen or tmux session)
+
+```
+cd ~/notebooks
+jupyter notebook --certfile=~/certs/mycert.pem --keyfile ~/certs/mycert.key
+```
+
+Detach from screen on tmux session, you can acccess jupyther from browser now: https://[INSTANCES_IP]:8888
+
+#### Install [Bazel](https://www.bazel.io/versions/master/docs/install.html) required for Tensorflow
+
+```
+echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
+curl https://storage.googleapis.com/bazel-apt/doc/apt-key.pub.gpg | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install bazel
+sudo apt-get upgrade bazel
+```
