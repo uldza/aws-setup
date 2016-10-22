@@ -90,3 +90,9 @@ sudo apt-get update
 sudo apt-get install bazel
 sudo apt-get upgrade bazel
 ```
+---
+
+### TODO
+* Install Nvidia toolkit
+* Install CudNN
+* Install tensorflow for anaconda with GPU support
