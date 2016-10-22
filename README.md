@@ -92,6 +92,28 @@ sudo apt-get upgrade bazel
 ```
 ---
 
+#### [TODO] Prerequisites for Nvidia toolkit
+Blacklist Nouveau - in conflict with the nvidia driver
+
+```
+echo -e "blacklist nouveau\nblacklist lbm-nouveau\noptions nouveau modeset=0\nalias nouveau off\nalias lbm-nouveau off\n" | sudo tee /etc/modprobe.d/blacklist-nouveau.conf
+echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
+sudo update-initramfs -u
+sudo reboot
+```
+
+Log in once back up
+
+```
+sudo apt-get install -y linux-image-extra-virtual
+sudo reboot
+```
+
+Install more deps
+```
+sudo apt-get install -y linux-source linux-headers-`uname -r`
+```
+
 #### [TODO] Install Nvidia toolkit
 
 `wget https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda_8.0.44_linux-run`
@@ -155,6 +177,15 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
 export CUDA_HOME=/usr/local/cuda
 ```
 
-### TODO
+#### [TODO] Install tensorflow from source for anaconda with GPU support
 
-* Install tensorflow for anaconda with GPU support
+```
+cd ~
+git clone https://github.com/tensorflow/tensorflow
+cd tensorflow
+./configure
+```
+Specify required config parameters
+
+!!! Note TODO sections is not tested and all install is not tested ATM, it is WIP
+
