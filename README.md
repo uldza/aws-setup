@@ -92,6 +92,44 @@ sudo apt-get upgrade bazel
 ```
 ---
 
+#### Install Nvidia toolkit
+
+`wget https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda_8.0.44_linux-run`
+
+Check md5 checksum:
+
+```
+cs=$(md5sum cuda_8.0.44_linux-run | cut -d' ' -f1)
+if [ "$cs" != "6dca912f9b7e2b7569b0074a41713640" ]; then echo "WARNING: Unverified MD5 hash"; fi
+```
+
+Next run Nvidia install scripts
+```
+chmod +x cuda_8.0.44_linux-run
+./cuda_8.0.44_linux-run -extract=`pwd`/nvidia_installers
+pushd nvidia_installers
+sudo ./NVIDIA-Linux-x86_64-346.46.run
+# When prompted you'll need to:
+# * Agree to the license terms
+# * Accept the X Library path and X module path
+# * Accept that 32-bit compatibility files will not be installed
+# * Review and accept the libvdpau and libvdpau_trace libraries notice
+# * Choose `Yes` when asked about automatically updating your X configuration file
+# * Verify successful installation by choosing `OK`
+sudo modprobe nvidia
+```
+
+Now we can run the CUDA installation script
+
+```
+sudo ./cuda-linux64-rel-8.0.44-19326674.run
+# When prompted, you'll need to:
+# * Accept the license terms (long scroll, page down with `f`)
+# * Use the default installation path
+# * Answer `n` to desktop shortcuts
+# * Answer `y` to create a symbolic link
+```
+
 ### TODO
 * Install Nvidia toolkit
 * Install CudNN
