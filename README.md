@@ -187,5 +187,6 @@ cd tensorflow
 ```
 Specify required config parameters
 
-!!! Note TODO sections is not tested and all install is not tested ATM, it is WIP
+### Note
+#### This is WIP, TODO sections are not tested and all install is not tested ATM
 
