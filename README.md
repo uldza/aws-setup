@@ -145,6 +145,7 @@ Then installation is as simple as extracting and moving a few files.
 cd ~/
 tar -xzf cudnn-8.0-linux-x64-v5.1.tgz
 sudo mv cuda /usr/local/
+sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ```
 
 Add these lines to `~/.bashrc`
